@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKI CAMPUS | Études à l'étranger & Orientation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #070b19;
+            --bg-surface: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #3b82f6;
+            --primary-glow: rgba(59, 130, 246, 0.3);
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.2);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #04060e;
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .top-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .top-contact {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .top-contact span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            background: white;
+            box-shadow: 0 0 15px var(--accent-glow);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), #2563eb);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px var(--primary-glow);
+            white-space: nowrap;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--primary-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 140px 24px 110px;
+            text-align: center;
+            background: linear-gradient(rgba(7, 11, 25, 0.85), rgba(7, 11, 25, 0.95)), url('1000127320_2.jpg') no-repeat center center/cover;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            color: #60a5fa;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 60px);
+            font-weight: 800;
+            line-height: 1.15;
+            max-width: 900px;
+            margin: 0 auto 24px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px var(--primary-glow);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: #2563eb;
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto 100px;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 35px 30px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 25px;
+        }
+
+        .details-btn {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            width: 100%;
+        }
+
+        .details-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .details-content {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+
+        .details-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .details-content li {
+            margin-bottom: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #04060e;
+            border-top: 1px solid var(--border);
+            padding: 80px 24px 30px;
+        }
+        .footer-grid {
+            max-width: 1280px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+        }
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+        .footer-col p, .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="top-container">
+            <div class="top-contact">
+                <span>📧 ikipas@outlook.com</span>
+                <span>📞 +212 661 862 506</span>
+            </div>
+            <div>📍 Fes, Maroc</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-box">
+                <!-- هنا تم ضبط اسم الصورة ليطابق logo.jpg -->
+                <img src="logo.jpg" alt="IKI CAMPUS Logo" class="logo-img">
+                <div class="logo-text">IKI <span>CAMPUS</span></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="#allemagne">Étudier en Allemagne</a></li>
+                <li><a href="#france">Campus France</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Démarrer Mon Dossier</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">🚀 Le Partenaire de Vos Études Internationales</div>
+        <h1>Concrétisez Votre Projet d'Avenir en <span>Allemagne & France</span></h1>
+        <p>Un accompagnement rigoureux, professionnel et de A à Z pour la gestion, la coordination et le suivi de vos dossiers universitaires.</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn-primary">Prendre Rendez-vous</a>
+            <a href="#allemagne" class="btn-secondary">Découvrir les Programmes</a>
+        </div>
+    </section>
+
+    <div class="container" id="allemagne" style="margin-top: 80px;">
+        <div class="section-header">
+            <h2>Étudier en Allemagne : Pôles & Avantages</h2>
+            <p>Cliquez sur "Plus d'informations" sur chaque section pour découvrir tous les détails indispensables.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div>
+                    <div class="card-icon">🎓</div>
+                    <h3>Excellence Académique</h3>
+                    <p>Des universités de renommée mondiale, reconnues pour la rigueur de leur enseignement et la pointe de la recherche.</p>
+                </div>
+                <div>
+                    <button class="details-btn" onclick="toggleDetails('det-1')">Plus d'informations ▼</button>
+                    <div id="det-1" class="details-content">
+                        <strong>Détails & Opportunités :</strong>
+                        <ul>
+                            <li>Diplômes reconnus mondialement.</li>
+                            <li>Infrastructures technologiques modernes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon">💡</div>
+                    <h3>Frais Réduits</h3>
+                    <p>Un système public performant offrant des frais de scolarité très faibles dans la plupart des länder.</p>
+                </div>
+                <div>
+                    <button class="details-btn" onclick="toggleDetails('det-2')">Plus d'informations ▼</button>
+                    <div id="det-2" class="details-content">
+                        <strong>Détails & Coûts :</strong>
+                        <ul>
+                            <li>Frais administratifs minimes par semestre.</li>
+                            <li>Bourses DAAD disponibles.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-icon">🌐</div>
+                    <h3>Formations en Anglais</h3>
+                    <p>Plus de 1 500 cursus dispensés entièrement en anglais du Bachelor au Doctorat.</p>
+                </div>
+                <div>
+                    <button class="details-btn" onclick="toggleDetails('det-3')">Plus d'informations ▼</button>
+                    <div id="det-3" class="details-content">
+                        <strong>Détails des Cursus :</strong>
+                        <ul>
+                            <li>Idéal pour internationaux (IELTS/TOEFL).</li>
+                            <li>Ingénierie, Tech et Business.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>IKI CAMPUS</h4>
+                <p>Votre partenaire de confiance pour vos études internationales.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Direct</h4>
+                <p>📧 ikipas@outlook.com</p>
+                <p>📞 +212 661 862 506</p>
+                <p>📍 Fes, Maroc</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 IKI CAMPUS. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            el.style.display = (el.style.display === "block") ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
